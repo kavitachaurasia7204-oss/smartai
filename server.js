@@ -25,7 +25,11 @@ app.post("/api/chat", async (req,res)=>{
   }catch(e){
     console.error(e);
     res.status(500).json({error:"SmartAI couldn't answer right now."});
-  }
+      }
 });
+
+export default app;
+
+
 
 app.listen(process.env.PORT || 3000, ()=>console.log("SmartAI running on http://localhost:"+(process.env.PORT||3000)));
