@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>SmartAI - ChatGPT Clone</title>
+<style>
+body{font-family:Arial; background:#212121; color:white; margin:0; display:flex; flex-direction:column; height:100vh;}
+.header{padding:15px; text-align:center; border-bottom:1px solid #333;}
+.chat{flex:1; overflow-y:auto; padding:20px;}
+.msg{margin:10px 0; padding:12px; border-radius:10px; max-width:70%;}
+.user{background:#2f2f2f; align-self:flex-end; margin-left:auto;}
+.bot{background:#444; }
+.input-area{display:flex; padding:15px; background:#2f2f2f;}
+input{flex:1; padding:12px; border-radius:20px; border:none; outline:none;}
+button{margin-left:10px; padding:12px 20px; border-radius:20px; border:none; background:#fff; cursor:pointer;}
+a{color:#10a37f; text-decoration:none; font-weight:bold;}
+</style>
+</head>
+<body>
+<div class="header">
+<h2>SmartAI 🤖</h2>
+<p>Server Connected | <a href="https://SmartAILabs.com" target="_blank">Visit SmartAILabs.com</a></p>
+</div>
+<div class="chat" id="chat">
+<div class="msg bot">Hello! Main SmartAI hu. SmartAILabs ke baare mein puchho!</div>
+</div>
+<div class="input-area">
+<input type="text" id="userInput" placeholder="Message SmartAI..." onkeypress="if(event.key==='Enter')send()">
+<button onclick="send()">Send</button>
+</div>
+<script>
+function send(){
+let input=document.getElementById("userInput");
+let chat=document.getElementById("chat");
+if(!input.value)return;
+chat.innerHTML+=`<div class="msg user">${input.value}</div>`;
+let q=input.value.toLowerCase();
+let reply="";
+if(q.includes("link") || q.includes("smart")) reply=`Yeh rahi tumhari link: <a href='https://SmartAILabs.com' target='_blank'>SmartAILabs.com</a> 🚀`;
+else reply="SmartAI yahan hai! Tum SmartAILabs.com visit kar sakte ho.";
+setTimeout(()=>{chat.innerHTML+=`<div class="msg bot">${reply}</div>`; chat.scrollTop=chat.scrollHeight;},500);
+input.value="";
+chat.scrollTop=chat.scrollHeight;
+}
+</script>
+</body>
+</html>
